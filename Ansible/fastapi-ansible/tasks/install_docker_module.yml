@@ -1,5 +1,0 @@
----
-- name: Install docker module
-  pip:
-    name: docker
-    state: latest
