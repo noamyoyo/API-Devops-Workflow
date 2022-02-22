@@ -1,0 +1,28 @@
+---
+- name: Remove current image
+  docker_image:
+    state: absent
+    name: "{{docker_build_image}}"
+    tag: latest
+
+- name: Build image with dockerfile
+  docker_image:
+    build:
+      path: /home/TimeStamp-API-Docker/
+    name: "{{docker_build_image}}"
+    tag: latest
+    push: yes
+    source: build
+  async: 500
+  poll: 5
+  register: docker_build
+
+- name: Push docker image to dockerhub
+  shell: docker push "{{docker_build_image}}":latest
+
+- name: Check on build image
+  async_status:
+    jid: "{{docker_build.ansible_job_id}}"
+  register: result
+  until: result.finished
+  retries: 100

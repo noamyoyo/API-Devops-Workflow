@@ -1,0 +1,6 @@
+---
+- name: Ensure machine is updated
+  apt:
+    update_cache: yes
+    upgrade: yes
+    cache_valid_time: 86400
