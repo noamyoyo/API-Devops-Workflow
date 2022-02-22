@@ -1,5 +1,4 @@
 import uvicorn
-# import socket
 from fastapi import FastAPI
 from apis.routes import router
 
@@ -13,6 +12,8 @@ def start_application():
 	return app 
 
 app = start_application()
+
+print("smth")
 
 
 if __name__ == '__main__':
