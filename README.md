@@ -1,2 +1,2 @@
 # API-Devops-Workflow
-Workflow of a basic API, built with FastAPI, built into a docker image file, pushed into docker hub with jenkins.
+Implemented a simple API server with Python, demonstrating the entire DevOps lifecycle using Jenkins on AWS, Github VCS, running an ansible playbook and deployed as a docker to DockerHub
